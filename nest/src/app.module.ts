@@ -9,8 +9,9 @@ import { SessionsModule } from './entity/sessions/sessions.module';
 import { BooksModule } from './entity/books/books.module';
 import { ConfigModule } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { APP_INTERCEPTOR } from '@nestjs/core';
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
+import { AllExceptionsFilter } from './common/filters/all-exception.filter';
 
 @Module({
   imports: [
@@ -21,11 +22,11 @@ import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
       envFilePath: '.env',
       isGlobal: true,
     }),
+    SessionsModule,
+    BooksModule,
     MongooseModule.forRoot(
       'mongodb+srv://canh177:canhga177@loser123.u1pzcor.mongodb.net/demo',
     ),
-    SessionsModule,
-    BooksModule,
     ThrottlerModule.forRoot([
       {
         name: 'short',
@@ -50,6 +51,10 @@ import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
     {
       provide: APP_INTERCEPTOR,
       useClass: LoggingInterceptor,
+    },
+    {
+      provide: APP_FILTER,
+      useClass: AllExceptionsFilter,
     },
   ],
 })
