@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { SessionsService } from './sessions.service';
-import { Session, SessionSchema } from 'src/schemas/session.schema';
+import { Session, SessionSchema } from 'src/common/schemas/session.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({

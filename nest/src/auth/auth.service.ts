@@ -1,10 +1,10 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { addMilliseconds } from 'date-fns';
-import { SignUpDto, LoginDto } from 'src/dto/user.dto';
-import { User } from 'src/schemas/user.schema';
-import { SessionsService } from 'src/sessions/sessions.service';
-import { UsersService } from 'src/users/users.service';
+import { SignUpDto, LoginDto } from 'src/common/dto/user.dto';
+import { User } from 'src/common/schemas/user.schema';
+import { SessionsService } from 'src/entity/sessions/sessions.service';
+import { UsersService } from 'src/entity/users/users.service';
 import * as bcrypt from 'bcrypt';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';

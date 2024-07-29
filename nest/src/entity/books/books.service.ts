@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Book } from 'src/schemas/book.schema';
+import { Book } from 'src/common/schemas/book.schema';
 import { Query } from 'express-serve-static-core';
 @Injectable()
 export class BooksService {

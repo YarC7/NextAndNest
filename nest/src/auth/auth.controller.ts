@@ -8,9 +8,9 @@ import {
   Req,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { Public } from './decorators/public.decorators';
+import { Public } from '../common/decorators/public.decorators';
 import { Request } from 'express';
-import { LoginDto, SignUpDto } from 'src/dto/user.dto';
+import { LoginDto, SignUpDto } from 'src/common/dto/user.dto';
 
 @Controller('auth')
 export class AuthController {
